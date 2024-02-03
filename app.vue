@@ -1,7 +1,7 @@
 <template>
     <div class="mx-auto">
-        <section class="layers px-[30px]">
-            <div class="layers__container">
+        <section class="layers py-4 md:py-12 px-[10px] md:px-[30px]">
+            <div class="layers__container h-fit md:h-[100dvh]">
                 <div
                     class="layers__item layer-1"
                     style="background-image: url(/6.jpg)"
@@ -30,21 +30,21 @@
             </div>
         </section>
         <div
-            class="h-[100dvh] bg-[#424146] shadow-[0_-10px_60px_-15px_rgba(0,0,0,0.3)] py-12 px-[30px]"
+            class="bg-[#424146] shadow-[0_-10px_60px_-15px_rgba(0,0,0,0.3)] py-4 md:py-12 px-[10px] md:px-[30px]"
         >
             <div
-                class="max-w-[1280px] mx-auto flex items-center justify-center group"
+                class="max-w-[1000px] mx-auto flex flex-col md:flex-row gap-10 md:gap-0 items-center justify-center group"
             >
                 <img
-                    class="rounded-xl w-[500px] mr-[-5%] group-hover:mr-[-3%] transition-all delay-200 duration-500"
+                    class="rounded-xl w-full md:w-[500px] md:mr-[-5%] md:group-hover:mr-[-3%] transition-all delay-200 duration-500"
                     src="/2.jpeg"
                     alt=""
                 />
                 <p
-                    class="w-[500px] font-mono text-white leading-9 text-lg z-10 flex flex-col justify-end gap-32"
+                    class="w-full md:w-[500px] font-mono text-white leading-9 text-md md:text-lg z-10 md:flex flex-col justify-end gap-32"
                 >
                     <span
-                        class="font-semibold text-2xl group-hover:text-3xl delay-200 transition-all duration-500"
+                        class="font-semibold text-xl md:text-2xl group-hover:text-3xl delay-200 transition-all duration-500"
                         >Рагулина Маргарита <br
                     /></span>
 
@@ -59,16 +59,18 @@
             </div>
         </div>
         <section
-            class="pt-[100px] bg-[#F2F1ED] w-[100dvw] h-[100dvh] px-[30px]"
+            class="md:pt-[100px] bg-[#F2F1ED] w-[100dvw] h-[100dvh] py-4 md:py-12 px-[10px] md:px-[30px]"
         >
             <div
-                class="max-w-[980px] mx-auto flex flex-col justify-start gap-20"
+                class="max-w-[980px] mx-auto flex flex-col justify-start gap-8 md:gap-20"
             >
-                <h2 class="text-4xl font-mono font-bold tracking-wider">
+                <h2
+                    class="text-xl md:text-4xl font-mono font-bold tracking-wider"
+                >
                     Направления работы
                 </h2>
                 <p
-                    class="text-2xl font-sans font-seimbold w-[600px] leading-8 tracking-wide"
+                    class="text-lg md:text-2xl font-sans font-seimbold w-full md:w-[600px] leading-8 tracking-wide"
                 >
                     Я специализируюсь на статьях и онлайн курсах "Связь с
                     общественностью". <br />
@@ -149,7 +151,7 @@ onMounted(() => {
 }
 .layers__container {
     scale: 0.5;
-    height: 100vh;
+
     min-height: 500px;
     transform-style: preserve-3d;
     transform: rotateX(var(--move-y)) rotateY(var(--move-x));
