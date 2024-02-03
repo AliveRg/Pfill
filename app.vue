@@ -1,3 +1,36 @@
+<script setup lang="ts">
+useHead({
+    title: "Резюме специалиста",
+    meta: [{ name: "description", content: "My amazing site." }],
+});
+import { computed, onMounted, onUnmounted, watch } from "vue";
+onMounted(() => {
+    document.addEventListener("mousemove", (e) => {
+        Object.assign(document.documentElement, {
+            style: `
+		--move-x: ${(e.clientX - window.innerWidth / 2) * -0.005}deg;
+		--move-y: ${(e.clientY - window.innerHeight / 2) * 0.01}deg;
+		`,
+        });
+    });
+    window.addEventListener("devicemotion", motion_hook, false);
+
+    // Обработчик события DeviceMotionEvent
+    function motion_hook(event) {
+        Object.assign(document.documentElement, {
+            style: `
+		--move-x: ${
+            (event.accelerationIncludingGravity.x - window.innerWidth / 2) *
+            -0.005
+        }deg;
+		--move-y: ${(event.accelerationIncludingGravity.y / 2) * 0.01}deg;
+		`,
+        });
+        console.log("Z=" + event.accelerationIncludingGravity.z);
+    }
+});
+</script>
+
 <template>
     <div class="mx-auto">
         <section class="layers py-4 md:py-12 px-[10px] md:px-[30px]">
@@ -86,35 +119,6 @@
         </section>
     </div>
 </template>
-
-<script setup>
-import { computed, onMounted, onUnmounted, watch } from "vue";
-onMounted(() => {
-    document.addEventListener("mousemove", (e) => {
-        Object.assign(document.documentElement, {
-            style: `
-		--move-x: ${(e.clientX - window.innerWidth / 2) * -0.005}deg;
-		--move-y: ${(e.clientY - window.innerHeight / 2) * 0.01}deg;
-		`,
-        });
-    });
-    window.addEventListener("devicemotion", motion_hook, false);
-
-    // Обработчик события DeviceMotionEvent
-    function motion_hook(event) {
-        Object.assign(document.documentElement, {
-            style: `
-		--move-x: ${
-            (event.accelerationIncludingGravity.x - window.innerWidth / 2) *
-            -0.005
-        }deg;
-		--move-y: ${(event.accelerationIncludingGravity.y / 2) * 0.01}deg;
-		`,
-        });
-        console.log("Z=" + event.accelerationIncludingGravity.z);
-    }
-});
-</script>
 
 <style>
 /* .back-head-img {
